@@ -23,9 +23,13 @@ export const getTasks = async (req, res) => {
   return res.status(200).json(data);
 };
 
-export const deleteAll = async (req, res) => {
+export const deleteOne = async (req, res) => {
   try {
-    await Task.deleteMany();
+    const taskId = req.params.id;
+    const deleteTask = await Task.findOneAndDelete({ _id: taskId });
+    if (!deleteTask) {
+      return res.status(404).json("task not found");
+    }
     res.status(200).json("deleted successfully");
   } catch (error) {
     console.log(error);

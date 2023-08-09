@@ -6,7 +6,7 @@ import bodyParser from "body-parser";
 import {
   postTodo,
   getTasks,
-  deleteAll,
+  deleteOne,
 } from "./controllers/task-controller.js";
 
 dotenv.config();
@@ -19,5 +19,5 @@ app.get("/", (req, res) => {
 });
 app.post("/api/addtask", postTodo);
 app.get("/api/tasks", getTasks);
-app.delete("/api/deleteAll", deleteAll);
-app.listen(3000);
+app.delete("/api/tasks/:id", deleteOne);
+app.listen(3002);
