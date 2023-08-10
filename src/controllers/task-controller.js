@@ -36,7 +36,7 @@ export const deleteOne = async (req, res) => {
   }
 };
 
-export const delteCompleted = async (req, res) => {
+export const deleteCompleted = async (req, res) => {
   try {
     await Task.deleteMany({ succeed: true });
     res.status(200).json({ message: "Completed task delete successfully" });
