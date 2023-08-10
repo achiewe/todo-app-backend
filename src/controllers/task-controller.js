@@ -35,3 +35,13 @@ export const deleteOne = async (req, res) => {
     console.log(error);
   }
 };
+
+export const delteCompleted = async (req, res) => {
+  try {
+    await Task.deleteMany({ succeed: true });
+    res.status(200).json({ message: "Completed task delete successfully" });
+  } catch (error) {
+    res.status(500).json({ error: "an error occured" });
+    console.log(error);
+  }
+};
