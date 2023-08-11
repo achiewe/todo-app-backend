@@ -49,11 +49,11 @@ export const deleteCompleted = async (req, res) => {
 export const CompStatus = async (req, res) => {
   try {
     const idTodo = req.params.id;
-    const { completed } = req.body;
+    const { succeed } = req.body;
 
     const todoModernize = await Task.findByIdAndUpdate(
       idTodo,
-      { completed },
+      { succeed },
       { new: true }
     );
 
