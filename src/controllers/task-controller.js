@@ -45,3 +45,25 @@ export const deleteCompleted = async (req, res) => {
     console.log(error);
   }
 };
+
+export const CompStatus = async (req, res) => {
+  try {
+    const idTodo = req.params.id;
+    const { completed } = req.body;
+
+    const todoModernize = await Task.findByIdAndUpdate(
+      idTodo,
+      { completed },
+      { new: true }
+    );
+
+    if (!todoModernize) {
+      return res.status(404).json({ message: "not found" });
+    }
+
+    res.status(200).json(todoModernize);
+  } catch (error) {
+    res.status(500).json({ error: "An error happen" });
+    console.log(error);
+  }
+};

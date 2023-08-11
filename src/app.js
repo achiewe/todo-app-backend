@@ -8,6 +8,7 @@ import {
   getTasks,
   deleteOne,
   deleteCompleted,
+  CompStatus,
 } from "./controllers/task-controller.js";
 
 dotenv.config();
@@ -22,4 +23,5 @@ app.post("/api/addtask", postTodo);
 app.get("/api/tasks", getTasks);
 app.delete("/api/tasks/:id", deleteOne);
 app.delete("/api/deleteCompleted", deleteCompleted);
+app.put("/api/tasks/:id", CompStatus);
 app.listen(3002);
