@@ -24,4 +24,4 @@ app.get("/api/tasks", getTasks);
 app.delete("/api/tasks/:id", deleteOne);
 app.delete("/api/deleteCompleted", deleteCompleted);
 app.put("/api/tasks/:id", CompStatus);
-app.listen(3002);
+app.listen(process.env.PORT || 3002);
